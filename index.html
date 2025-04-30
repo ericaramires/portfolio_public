@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erica Ramires - Full Stack Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         .flag-icon {
@@ -27,14 +27,14 @@
                 <a href="#contact" class="nav-item">Contato</a>
                 <div class="language-toggle">
                     <button class="lang-btn">
-                        <img src="images/flags/brazil.svg" alt="Português" class="flag-icon">
+                        <img src="/public/images/flags/brazil.svg" alt="Português" class="flag-icon">
                     </button>
                     <div class="language-dropdown">
                         <button data-lang="pt-BR">
-                            <img src="images/flags/brazil.svg" alt="Português" class="flag-icon"> Português
+                            <img src="/public/images/flags/brazil.svg" alt="Português" class="flag-icon"> Português
                         </button>
                         <button data-lang="en">
-                            <img src="images/flags/usa.svg" alt="English" class="flag-icon"> English
+                            <img src="/public/images/flags/usa.svg" alt="English" class="flag-icon"> English
                         </button>
                     </div>
                 </div>
@@ -62,14 +62,14 @@
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/ramireserica/" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/ericaramires" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="CV pt Erica Ramires.pdf" target="_blank" id="cv-download">
+                    <a href="/public/CV-pt-Erica-Ramires.pdf" target="_blank" id="cv-download">
                         <i class="fas fa-file-alt"></i>
                         <span class="cv-text">CV</span>
                     </a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="images/profile.jpg" alt="Erica Ramires" class="profile-image">
+                <img src="/public/images/profile.jpg" alt="Erica Ramires" class="profile-image">
             </div>
         </div>
     </section>
@@ -167,8 +167,8 @@
         </div>
     </section>
 
-    <script src="translations.js"></script>
-    <script src="modified_portfolio.js"></script>
-    <script src="contact_form.js"></script>
+    <script type="module" src="/src/translations.js"></script>
+    <script type="module" src="/src/modified_portfolio.js"></script>
+    <script type="module" src="/src/contact_form.js"></script>
 </body>
 </html>
