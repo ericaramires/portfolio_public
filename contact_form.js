@@ -13,12 +13,14 @@ function loadEmailJsLibrary() {
   document.head.appendChild(script);
 
   script.onload = () => {
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
-    if (!publicKey) {
-      console.error('Chave pública do EmailJS não encontrada.');
-      return;
-    }
-    emailjs.init(publicKey);
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+      if (!publicKey) {
+          console.error('Chave pública do EmailJS não encontrada.');
+          return;
+      }
+      emailjs.init(publicKey);
+      console.log("EmailJS library loaded and initialized.");
+
   };
 }
 
@@ -79,7 +81,17 @@ async function handleFormSubmission(form, button, formData) {
   setButtonState(button, 'loading', true);
 
   try {
-    await emailjs.send('service_k6vjp9r', 'template_uqfgq3c', formData);
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    if (!serviceId || !templateId) {
+      console.error('Service ID ou Template ID não encontrados.');
+      setButtonState(button, 'error', false);
+      return;
+    }
+
+    console.log('formData',formData)
+    await emailjs.send(serviceId, templateId, formData);
+
     setButtonState(button, 'success', false);
     form.reset();
   } catch (error) {
