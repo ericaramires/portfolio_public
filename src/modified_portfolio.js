@@ -1,3 +1,5 @@
+import translations from './translations.js';
+
 const themeToggle = document.querySelector('.theme-toggle');
 const body = document.body;
 

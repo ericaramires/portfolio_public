@@ -18,7 +18,7 @@ const translations = {
     message_label: 'Mensagem',
     send_button: 'Enviar Mensagem',
     cv_text: 'CV',
-    cv_file: 'CV pt Erica Ramires.pdf',
+    cv_file: '/public/CV-pt-Erica-Ramires.pdf',
   },
   en: {
     nav_home: 'Home',
@@ -39,6 +39,8 @@ const translations = {
     message_label: 'Message',
     send_button: 'Send Message',
     cv_text: 'Resume',
-    cv_file: 'CV en Erica Ramires.pdf',
+    cv_file: '/public/CV-en-Erica-Ramires.pdf',
   },
 };
+
+export default translations;
