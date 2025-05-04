@@ -1,0 +1,4 @@
+.env
+*.local
+*.local.env
+node_modules
