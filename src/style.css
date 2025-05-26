@@ -376,15 +376,15 @@ body {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .skill-card {
     background-color: var(--card-bg);
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s ease;
@@ -392,18 +392,18 @@ body {
 }
 
 .skill-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
 }
 
 .skill-card img {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 1rem;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
 }
 
 .skill-card h3 {
     color: var(--heading-color);
-    font-size: 1.25rem;
+    font-size: 0.9rem;
 }
 
 .projects {
