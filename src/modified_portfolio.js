@@ -51,43 +51,80 @@ langOptions.forEach(option => {
 
 const initLanguage = () => {
     const savedLang = localStorage.getItem('language') || navigator.language.split('-')[0] || 'pt-BR';
-    const langOption = document.querySelector(`[data-lang="${savedLang}"]`);
+    const normalizedLang = savedLang === 'pt' ? 'pt-BR' : savedLang;
+    const langOption = document.querySelector(`[data-lang="${normalizedLang}"]`);
     if (langOption) {
         const flag = langOption.querySelector('img').cloneNode(true);
         langBtn.innerHTML = '';
         langBtn.appendChild(flag);
-        changeLanguage(savedLang);
+        changeLanguage(normalizedLang);
     }
 };
 
 const changeLanguage = (lang) => {
     const texts = translations[lang];
+    
+    // Atualizar navegação
     document.querySelector('a[href="#hero"].nav-item').textContent = texts.nav_home;
     document.querySelector('a[href="#skills"].nav-item').textContent = texts.nav_skills;
     document.querySelector('a[href="#projects"].nav-item').textContent = texts.nav_projects;
     document.querySelector('a[href="#contact"].nav-item').textContent = texts.nav_contact;
+    
+    // Atualizar seção hero
     document.querySelector('.greeting').textContent = texts.greeting;
     document.querySelector('.description').textContent = texts.description;
     window.professions = texts.professions;
     restartTypewriterEffect();
+    
+    // Atualizar títulos das seções
     document.querySelector('#skills h2').textContent = texts.skills_title;
     document.querySelector('#projects h2').textContent = texts.projects_title;
     document.querySelector('#contact h2').textContent = texts.contact_title;
+    
+    // Atualizar projetos
     const projectCards = document.querySelectorAll('.project-card h3');
     if (projectCards.length >= 1) projectCards[0].textContent = texts.project1_title;
     if (projectCards.length >= 2) projectCards[1].textContent = texts.project2_title;
     if (projectCards.length >= 3) projectCards[2].textContent = texts.project3_title;
+    if (projectCards.length >= 4) projectCards[3].textContent = texts.project4_title;
+    
+    // Atualizar botões "Ver Detalhes"
+    const viewDetailsButtons = document.querySelectorAll('.project-btn');
+    viewDetailsButtons.forEach(button => {
+        button.textContent = texts.view_details;
+    });
+    
+    // Atualizar modal headers
+    const modalDescHeader = document.querySelector('[data-key="modal_description"]');
+    const modalTechHeader = document.querySelector('[data-key="modal_technologies"]');
+    const modalFeaturesHeader = document.querySelector('[data-key="modal_features"]');
+    
+    if (modalDescHeader) modalDescHeader.textContent = texts.modal_description;
+    if (modalTechHeader) modalTechHeader.textContent = texts.modal_technologies;
+    if (modalFeaturesHeader) modalFeaturesHeader.textContent = texts.modal_features;
+    
+    // Atualizar formulário de contato
     document.querySelector('label[for="name"]').textContent = texts.name_label;
     document.querySelector('label[for="email"]').textContent = texts.email_label;
     document.querySelector('label[for="message"]').textContent = texts.message_label;
     document.querySelector('button[type="submit"]').textContent = texts.send_button;
+    
+    // Atualizar atributos da página
     document.documentElement.lang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    
+    // Atualizar CV link
     const cvLink = document.getElementById('cv-download');
     const cvSpan = document.querySelector('.cv-text');
     if (cvLink && cvSpan) {
         cvLink.href = translations[lang].cv_file;
         cvSpan.textContent = translations[lang].cv_text;
     }
+    
+    // Disparar evento para atualizar modal
+    document.dispatchEvent(new CustomEvent('languageChanged', { 
+        detail: { language: lang } 
+    }));
 };
 
 let typewriterTimeout;

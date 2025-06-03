@@ -34,14 +34,14 @@
                 <a href="#contact" class="nav-item">Contato</a>
                 <div class="language-toggle">
                     <button class="lang-btn">
-                        <img src="/public/images/flags/brazil.svg" alt="Português" class="flag-icon">
+                        <img src="/images/flags/brazil.svg" alt="Português" class="flag-icon">
                     </button>
                     <div class="language-dropdown">
                         <button data-lang="pt-BR">
-                            <img src="/public/images/flags/brazil.svg" alt="Português" class="flag-icon"> Português
+                            <img src="/images/flags/brazil.svg" alt="Português" class="flag-icon"> Português
                         </button>
                         <button data-lang="en">
-                            <img src="/public/images/flags/usa.svg" alt="English" class="flag-icon"> English
+                            <img src="/images/flags/usa.svg" alt="English" class="flag-icon"> English
                         </button>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="/public/images/profile.jpg" alt="Erica Ramires" class="profile-image">
+                <img src="/images/profile.jpg" alt="Erica Ramires" class="profile-image">
             </div>
         </div>
     </section>
@@ -156,49 +156,114 @@
     </section>
 
     <section id="projects" class="projects">
-        <h2>Projetos</h2>
+        <h2 data-key="projects_title">Projetos</h2>
         <div class="projects-grid">
-            <div class="project-card">
-                <h3>Gestão de Finanças</h3>
-                <div class="project-tech">
-                    <span>Python</span>
-                    
+            <div class="project-card" data-project="finance">
+                <div class="project-content">
+                    <h3 data-key="project1_title">Gestão de Finanças</h3>
+                    <div class="project-tech">
+                        <span>Python</span>
+                    </div>
+                    <div class="project-preview">
+                        <img src="/images/preview/gestão_de_financas.png" alt="Preview">
+                    </div>
                 </div>
-                <div class="project-preview">
-                    <img src="/images/preview/gestão_de_financas.png" alt="Preview">
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>Plataforma de Serviços Auto-Hospedados</h3>
-                <div class="project-tech">
-                    <span>Docker</span>
-                    <span>Kubernetes</span>
-                    <span>Linux</span>
-                    <span>CloudFlare</span>
-                    <span>NodePort</span>
-                    <span>K9S</span>
-                </div>
-                <div class="project-preview">
-                    <img src="/images/preview/homelab.jpg" alt="Preview">
+                <div class="project-button-area">
+                    <button class="project-btn" data-key="view_details">Ver Detalhes</button>
                 </div>
             </div>
-            <div class="project-card">
-                <h3>Overcured Game</h3>
-                <div class="project-tech">
-                    <span>Docker</span>
-                    <span>AWS</span>
-                    <span>JS</span>
-                    <span>Node.js</span>
-                    <span>Vite</span>
-                    <span>Phaser 3</span>
-                    <span>Nakama</span>
+            <div class="project-card" data-project="homelab">
+                <div class="project-content">
+                    <h3 data-key="project2_title">Plataforma de Serviços Auto-Hospedados</h3>
+                    <div class="project-tech">
+                        <span>Docker</span>
+                        <span>Kubernetes</span>
+                        <span>Linux</span>
+                        <span>CloudFlare</span>
+                        <span>NodePort</span>
+                        <span>K9S</span>
+                    </div>
+                    <div class="project-preview">
+                        <img src="/images/preview/homelab.jpg" alt="Preview">
+                    </div>
                 </div>
-                <div class="project-preview">
-                    <img src="/images/preview/overcured_game.jpeg" alt="Preview Overcured Game">
+                <div class="project-button-area">
+                    <button class="project-btn" data-key="view_details">Ver Detalhes</button>
+                </div>
+            </div>
+            <div class="project-card" data-project="game">
+                <div class="project-content">
+                    <h3 data-key="project3_title">Overcured Game</h3>
+                    <div class="project-tech">
+                        <span>Docker</span>
+                        <span>AWS</span>
+                        <span>JS</span>
+                        <span>Node.js</span>
+                        <span>Vite</span>
+                        <span>Phaser 3</span>
+                        <span>Nakama</span>
+                    </div>
+                    <div class="project-preview">
+                        <img src="/images/preview/overcured_game.jpeg" alt="Preview Overcured Game">
+                    </div>
+                </div>
+                <div class="project-button-area">
+                    <button class="project-btn" data-key="view_details">Ver Detalhes</button>
+                </div>
+            </div>
+            <div class="project-card" data-project="api">
+                <div class="project-content">
+                    <h3 data-key="project4_title">REST API Flask</h3>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>MongoDB</span>
+                        <span>MongoEngine</span>
+                        <span>Docker</span>
+                        <span>Pytest</span>
+                    </div>
+                    <div class="project-preview">
+                        <img src="/images/preview/restapi.png" alt="Preview REST API Flask">
+                    </div>
+                </div>
+                <div class="project-button-area">
+                    <button class="project-btn" data-key="view_details">Ver Detalhes</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal para Projetos -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-image" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <div class="modal-description">
+                        <h3 data-key="modal_description">Descrição</h3>
+                        <p id="modal-description"></p>
+                    </div>
+                    <div class="modal-technologies">
+                        <h3 data-key="modal_technologies">Tecnologias Utilizadas</h3>
+                        <div id="modal-tech" class="tech-list"></div>
+                    </div>
+                    <div class="modal-features">
+                        <h3 data-key="modal_features">Funcionalidades</h3>
+                        <ul id="modal-features"></ul>
+                    </div>
+                    <div class="modal-links">
+                        <div id="modal-links"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section id="contact" class="contact">
         <h2>Contato</h2>
@@ -224,6 +289,7 @@
     <script type="module" src="/src/translations.js"></script>
     <script type="module" src="/src/modified_portfolio.js"></script>
     <script type="module" src="/src/contact_form.js"></script>
+    <script type="module" src="/src/modal.js"></script>
 </body>
 
 </html>
